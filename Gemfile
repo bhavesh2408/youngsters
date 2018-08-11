@@ -8,6 +8,8 @@ gem 'rails', '~> 5.2.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem 'devise'
+
 gem 'bootstrap'
 gem 'jquery-rails'
 
