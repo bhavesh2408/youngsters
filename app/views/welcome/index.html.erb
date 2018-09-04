@@ -1,6 +1,9 @@
 <body id="body">
   <div>
-    <nav class="navbar navbar-expand">
+    <nav class="navbar navbar-expand bg-light">
+
+      <a class="navbar-brand" >YOUNGSTERS</a>
+
       <ul class="navbar-nav">
         <!-- <li class="nav-item"><%= link_to "COLLECTIONS","#",class: "nav-link" %></li>
         <li class="nav-item"><%= link_to "GUYS", "#",class: "nav-link"  %></li>
@@ -94,8 +97,8 @@
         </div>
       </ul>
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><%= link_to "Sign Out",destroy_user_session_path, :method => :delete,class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "Login","#",class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Sign Out",destroy_user_session_path, :method => :delete,class: "nav-link signout_login" %></li>
+          <li class="nav-item"><%= link_to "Login","#",class: "nav-link signout_login" %></li>
         </ul>
     </nav>
   </div>
