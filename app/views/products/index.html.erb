@@ -21,7 +21,7 @@
         <td><%= product.name %></td>
         <td><%= product.code %></td>
         <td><%= product.price %></td>
-        <td><%= product.size %></td>
+        <td><%= product.size&.join(',') %></td>
         <td><%= product.category %></td>
         <td><%= product.quantity %></td>
         <td><%= link_to 'Show', product %></td>
