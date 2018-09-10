@@ -17,7 +17,7 @@
 
 <p>
   <strong>Size:</strong>
-  <%= @product.size.join(',') %>
+  <%= @product.size&.join(',') %>
 </p>
 
 <p>
@@ -28,6 +28,11 @@
 <p>
   <strong>Quantity:</strong>
   <%= @product.quantity %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag(@product.image_url.to_s) %>
 </p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |

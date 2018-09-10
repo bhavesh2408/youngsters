@@ -46,6 +46,11 @@
     <%= form.select(:category, {"Male"=>"Male", "Female"=>"Female", "Unisex"=>"Unisex", "Kids"=>"Kids"},{:prompt => "Select.."},{ :class => '', :include_blank => 'none'  }) %>
   </div>
 
+  <div class="field">
+    <%= form.label :image, "Add An Image" %>
+    <%= form.file_field :image %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
