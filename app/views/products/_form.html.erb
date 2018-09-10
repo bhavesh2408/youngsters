@@ -29,7 +29,11 @@
   <div class="field">
     <%= form.label :size %>
     <%#= form.text_field :size %>
-    <%= form.select(:size, {"S"=>"S", "M"=>"M", "L"=>"L", "XL"=>"XL", "XXL"=>"XXL", "Free"=>"Free"},{:prompt => "Select.."},{ :class => '', :include_blank => 'none'  })%>
+    <% sizes = ["S","M","L","XL","XXL","Free"]%>
+    <% sizes.each do |size| %>
+      <%= form.check_box :size, {multiple: true,}, size, false  %>
+      <%= form.label :size, "#{size}" %>
+    <% end %>
   </div>
 
   <div class="actions">
