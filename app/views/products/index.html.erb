@@ -25,7 +25,9 @@
         <td><%= product.size&.join(',') %></td>
         <td><%= product.category %></td>
         <td><%= product.quantity %></td>
-        <td><%= image_tag(@product&.image_url(:thumb).to_s) %></td>
+        <td><%#= image_tag(@product&.image_url(:thumb).to_s) %>
+          <img src="<%= product&.image_url(:thumb).to_s %>">
+        </td>
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -37,3 +39,10 @@
 <br>
 
 <%= link_to 'New Product', new_product_path %>
+
+<div class="row">
+  <div class="col-md-3">
+    <%#= image_tag(@products.last&.image_url.to_s) %>
+    <%= image_tag(@products.last&.image_url(:thumb).to_s) %>
+  </div>
+</div>
