@@ -16,7 +16,9 @@
 <div class="container-fluid row">
   <% @products.each do |product| %>
     <div class="col-md-4">
-      <img src="<%= product&.image_url(:thumb).to_s %>"><br>
+      <div class="main_product">
+        <img src="<%= product&.image_url(:thumb).to_s %>"><br>
+      </div>
         <ul style="list-style: none">
           <li><b>Price: </b><%= product.price %></li>
           <li><b>Sizes: </b><%= product.size.join(',') %></li>
