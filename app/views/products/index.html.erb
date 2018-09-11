@@ -1,48 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Products</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Code</th>
-      <th>Price</th>
-      <th>Size</th>
-      <th>Category</th>
-      <th>Quantity</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.code %></td>
-        <td><%= product.price %></td>
-        <td><%= product.size&.join(',') %></td>
-        <td><%= product.category %></td>
-        <td><%= product.quantity %></td>
-        <td><%#= image_tag(@product&.image_url(:thumb).to_s) %>
-          <img src="<%= product&.image_url(:thumb).to_s %>">
-        </td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container-fluid row">
+  <div class="col-md-4">
+    <h1>Products</h1>
+  </div>
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4">
+    <%= link_to 'New Product', new_product_path, class: 'btn btn-success' %>
+  </div>
+</div>
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
-
-<div class="row">
-  <div class="col-md-3">
-    <%#= image_tag(@products.last&.image_url.to_s) %>
-    <%= image_tag(@products.last&.image_url(:thumb).to_s) %>
-  </div>
+<div class="container-fluid row">
+  <% @products.each do |product| %>
+    <div class="col-md-4">
+      <img src="<%= product&.image_url(:thumb).to_s %>"><br>
+        <ul style="list-style: none">
+          <li><b>Price: </b><%= product.price %></li>
+          <li><b>Sizes: </b><%= product.size.join(',') %></li>
+          <li><b>Quantity: </b><%= product.quantity %></li>
+          <li><b>Name: </b><%= product.name %></li>
+          <li><b>Code: </b><%= product.code %></li>
+          <li><b>Category: </b><%= product.category %></li>
+          <li><b>Actions: </b><%= link_to 'Show', product %>, <%= link_to 'Edit', edit_product_path(product) %>, <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        <ul>
+    </div>
+  <% end %>
 </div>
