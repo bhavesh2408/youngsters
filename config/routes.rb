@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   
-  resources :employees
+  resources :employees do
+    collection do
+      post :import
+      get :import
+    end
+  end
+
   resources :products do
   	collection do
       post :import

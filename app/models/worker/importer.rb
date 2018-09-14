@@ -27,7 +27,29 @@ class Worker::Importer::ImportProducts
     @spreadsheet.each_with_index(headers: true) do |row, i|
       next if i == 0 # skip headers and empty records
       product_attributes = Product.attributes_for_import(row)
-      account = Product.create(product_attributes)
+      product = Product.create(product_attributes)
+    end
+  end
+end
+
+
+class Worker::Importer::ImportEmployees
+  attr_reader :error_messages
+
+  def initialize(file)
+    @spreadsheet = Worker::Importer.open_spreadsheet(file)
+    @error_messages = {}
+
+    import
+  end
+
+  private
+
+  def import
+    @spreadsheet.each_with_index(headers: true) do |row, i|
+      next if i == 0 # skip headers and empty records
+      employee_attributes = Employee.attributes_for_import(row)
+      employee = Employee.create(employee_attributes)
     end
   end
 end
