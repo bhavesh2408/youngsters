@@ -17,7 +17,9 @@
   <% @products.each do |product| %>
     <div class="col-md-4">
       <div class="main_product">
-        <img src="<%= product&.image_url(:thumb).to_s %>">
+        <%= link_to product do %>
+          <%= image_tag(product&.image_url(:thumb).to_s) %>
+        <% end %>
       </div>
         <ul style="list-style: none">
           <li><b>Price: </b><%= product.price %></li>
