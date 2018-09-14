@@ -7,7 +7,7 @@ ruby '2.4.1'
 gem 'rails', '~> 5.2.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
-
+gem 'roo'
 gem 'devise'
 
 gem 'bootstrap'

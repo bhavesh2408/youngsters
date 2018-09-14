@@ -1,0 +1,11 @@
+<h1>Ready to import Products For You......</h1>
+
+
+<div class="col-md-5">
+	<h4 class="header-block">Step 2:</h4>
+	<p>Upload Spreadsheet</p>
+	<%= form_tag import_products_path, multipart: true, :class => 'form-inline', :id => "import_form_fast" do %>
+	<%= file_field_tag :file %><br/><br/><hr/>
+	<%= submit_tag "Import Excel Sheet", :class => 'btn btn-info', :id => "import_button", :data => {:"loading-text" => "Importing Records..." }  %>
+	<% end %>
+</div>

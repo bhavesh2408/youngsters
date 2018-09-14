@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :products
+  
+  resources :products do
+  	collection do
+      post :import
+      get :import
+    end
+	end
   
   devise_for :users
   get 'welcome/index'

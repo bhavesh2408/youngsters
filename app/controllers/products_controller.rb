@@ -51,6 +51,27 @@ class ProductsController < ApplicationController
     end
   end
 
+  def import
+    if request.post?
+      import_file
+    end
+  end
+
+  def import_file
+    if params[:file].nil?
+      redirect_to products_path, flash: {error: 'File does not exist'}
+    else
+      import = Worker::Importer::ImportProducts.new(params[:file])
+      
+      if import.error_messages.blank?
+        flash[:success] = 'We are retrieving your data.'
+      else
+        flash[:alert] = import_errors(import.error_messages)
+      end
+      redirect_to action: "index"
+    end
+  end
+
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
