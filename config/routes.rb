@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :brands
   resources :employees do
     collection do
       post :import

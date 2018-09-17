@@ -22,6 +22,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :brand %>
+    <%= form.select :brand_id, Brand.all.map {|brand| [brand.name, brand.id]}, id: :brand_id %>
+  </div>
+
+  <div class="field">
     <%= form.label :quantity %>
     <%= form.number_field :quantity, min: 0 %>
   </div>
