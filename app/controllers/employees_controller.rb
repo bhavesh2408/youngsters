@@ -15,6 +15,7 @@ class EmployeesController < ApplicationController
   # GET /employees/new
   def new
     @employee = Employee.new
+    @employee.build_image
   end
 
   # GET /employees/1/edit
@@ -90,6 +91,6 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:name, :email, :address)
+      params.require(:employee).permit(:name, :email, :address, image_attributes: [:image])
     end
 end
