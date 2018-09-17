@@ -9,7 +9,7 @@ gem 'rails', '~> 5.2.0'
 gem 'pg'
 gem 'roo'
 gem 'devise'
-
+gem 'rolify'
 gem 'bootstrap'
 gem 'jquery-rails'
 
